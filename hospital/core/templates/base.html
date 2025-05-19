@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMApp {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Menú Superior Responsive -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="{% url 'home' %}" class="navbar-brand">Hospital XYZ</a>
+            <button class="navbar-toggler" id="mobile-menu">
+                ☰
+            </button>
+            <ul class="navbar-menu" id="navbar-menu">
+                <li><a href="{% url 'comunidad' %}">Comunidad</a></li>
+                <li><a href="{% url 'revista' %}">Revista</a></li>
+                <li><a href="{% url 'calendario' %}">Calendario</a></li>
+                <li><a href="{% url 'reportes' %}">Reportes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal con Logo de Fondo -->
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>
